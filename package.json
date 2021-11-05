@@ -10,8 +10,7 @@
     "@chakra-ui/react": "^1.6.12",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@types/chrome": "^0.0.162",
-    "framer-motion": "^4",
+    "framer-motion": "^5.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -22,6 +21,7 @@
     "@snowpack/web-test-runner-plugin": "^0.2.2",
     "@testing-library/react": "^11.2.6",
     "@types/chai": "^4.2.17",
+    "@types/chrome": "^0.0.162",
     "@types/mocha": "^8.2.2",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
