@@ -241,8 +241,19 @@ const ExtendMode = ({ version }: { version: string }) => {
 const App = () => {
   const [checking, setCheking] = useState(true);
   const [isEnabled, setIsEnabled] = useState(false);
+  const [extensionVersion, setextensionChecking] = useState('');
   const [version, setVersion] = useState('');
 
+  const checkExtensionNewVersion = async () => {
+    const response = await fetch(
+      'https://api.github.com/repos/Hitomi-Downloader-extension/chrome-extension/releases',
+    );
+    const data = await response.json();
+    if (data[0].tag_name != chrome.runtime.getManifest().version) {
+      setextensionChecking(data[0].tag_name);
+      return;
+    }
+  };
 
   const checkHitomiDownloaderHTTPAPIIsEnabled = async () => {
     setCheking(true);
@@ -277,6 +288,24 @@ const App = () => {
             Hitomi Downloader extension
           </Heading>
         </Center>
+        {extensionVersion !== '' ? (
+          <Alert status="warning" margin={0}>
+            <AlertIcon />
+            <Text>
+              New version released!{' '}
+              <Link
+                color="teal.500"
+                onClick={() =>
+                  window.open(
+                    `https://github.com/Hitomi-Downloader-extension/chrome-extension/releases/tag/${extensionVersion}`,
+                  )
+                }
+              >
+                Download {extensionVersion}
+              </Link>
+            </Text>
+          </Alert>
+        ) : null}
         {checking ? (
           <Loading text="Checking HTTP API was enabled..." />
         ) : isEnabled ? (
