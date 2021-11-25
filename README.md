@@ -1,5 +1,8 @@
 # Hitomi Downloader extension
 
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Hitomi-Downloader-extension/chrome-extension)
+![GitHub all releases](https://img.shields.io/github/downloads/Hitomi-Downloader-extension/chrome-extension/total)
+
 Try Hitomi Downloader right from the web!
 
 ![show](static/show.gif)
