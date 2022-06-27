@@ -11,11 +11,15 @@ import {
   AlertIcon,
   useToast,
   Link,
+  useColorMode,
+  IconButton,
 } from '@chakra-ui/react';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 const api = 'http://localhost:6975';
 
 const Footer = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex
       as="footer"
@@ -41,6 +45,15 @@ const Footer = () => {
           Github
         </a>
       </Text>
+      <IconButton
+        variant="ghost"
+        onClick={toggleColorMode}
+        aria-label={
+          colorMode === 'dark' ? 'Enable Light mode' : 'Enable Dark mode'
+        }
+      >
+        {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+      </IconButton>
     </Flex>
   );
 };
@@ -59,7 +72,7 @@ const CompatMode = ({ checkFunc }: { checkFunc: () => Promise<void> }) => {
     <>
       <Alert status="warning">
         <AlertIcon />
-        Couldn't connect with Hitomi Downloader :(
+        Couldn't connect with Hitomi Downloader :{'('}
       </Alert>
       <Flex direction="column" height="100%">
         <Flex
