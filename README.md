@@ -9,7 +9,7 @@ Try Hitomi Downloader right from the web!
 
 ## Install
 
-https://github.com/Hitomi-Downloader-extension/chrome-extension/releases
+https://github.com/Saebasol/chrome-extension/releases
 
 1. Unzip the ``build.zip``
 2. Goto ``chrome://extensions.``
