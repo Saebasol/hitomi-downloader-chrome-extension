@@ -34,11 +34,11 @@ const Footer = () => {
         <span role="img" aria-label="love">
           💖
         </span>{' '}
-        by SaidBySolo
+        by Saebasol
       </Text>
       <Text fontSize="sm">
         <a
-          href="https://github.com/Hitomi-Downloader-extension/chrome-extension"
+          href="https://github.com/Saebasol/hitomi-downloader-chrome-extension"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -259,7 +259,7 @@ const App = () => {
 
   const checkExtensionNewVersion = async () => {
     const response = await fetch(
-      'https://api.github.com/repos/Hitomi-Downloader-extension/chrome-extension/releases',
+      'https://api.github.com/repos/Saebasol/hitomi-downloader-chrome-extension/releases',
     );
     const data = await response.json();
     if (data[0].tag_name != chrome.runtime.getManifest().version) {
@@ -310,7 +310,7 @@ const App = () => {
                 color="teal.500"
                 onClick={() =>
                   window.open(
-                    `https://github.com/Hitomi-Downloader-extension/chrome-extension/releases/tag/${extensionVersion}`,
+                    `https://github.com/Saebasol/hitomi-downloader-chrome-extension/releases/tag/${extensionVersion}`,
                   )
                 }
               >

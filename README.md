@@ -1,7 +1,7 @@
 # Hitomi Downloader extension
 
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Hitomi-Downloader-extension/chrome-extension)
-![GitHub all releases](https://img.shields.io/github/downloads/Hitomi-Downloader-extension/chrome-extension/total)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Saebasol/hitomi-downloader-chrome-extension)
+![GitHub all releases](https://img.shields.io/github/downloads/Saebasol/hitomi-downloader-chrome-extension/total)
 
 Try Hitomi Downloader right from the web!
 
@@ -9,7 +9,7 @@ Try Hitomi Downloader right from the web!
 
 ## Install
 
-https://github.com/Saebasol/chrome-extension/releases
+https://github.com/Saebasol/hitomi-downloader-hitomi-downloader-chrome-extension/releases
 
 1. Unzip the ``build.zip``
 2. Goto ``chrome://extensions.``
