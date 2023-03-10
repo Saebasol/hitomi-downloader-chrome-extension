@@ -29,14 +29,14 @@ const Footer = () => {
       color="white"
       p={6}
     >
-      <Text fontSize="sm">
+      <Text fontSize="sm" color={colorMode === "dark" ? "white" : "black"}>
         Made with{' '}
         <span role="img" aria-label="love">
           💖
         </span>{' '}
         by Saebasol
       </Text>
-      <Text fontSize="sm">
+      <Text fontSize="sm" color={colorMode === "dark" ? "white" : "black"} >
         <a
           href="https://github.com/Saebasol/hitomi-downloader-chrome-extension"
           target="_blank"
@@ -199,7 +199,7 @@ const ExtendMode = ({ version }: { version: string }) => {
           isClosable: true,
         });
         console.log(`err: ${response.status}`);
-        console.log(`resp: ${response.text()}`);
+        console.log(`resp: ${JSON.stringify(await response.text())}`);
       }
     });
   };
@@ -229,7 +229,7 @@ const ExtendMode = ({ version }: { version: string }) => {
           height="400px"
         >
           <Button
-            isLoading={!!downloadRequesting}
+            isLoading={downloadRequesting}
             isDisabled={!url}
             onClick={() => requestHitomiDownloaderDownload()}
             margin="5px"
@@ -237,7 +237,7 @@ const ExtendMode = ({ version }: { version: string }) => {
             Download currunt page
           </Button>
           <Button
-            isLoading={!!cookieRequesting}
+            isLoading={cookieRequesting}
             isDisabled={!url}
             onClick={() => updateHitomiDownloaderCookies()}
             margin="5px"
@@ -275,8 +275,7 @@ const App = () => {
       if (response.status === 200) {
         setCheking(false);
         setIsEnabled(true);
-        setVersion((await response.json())['version']);
-        console.log(`Hitomi Downloader version: ${version}`);
+        console.log(`Hitomi Downloader version: ${(await response.json())['version']}`);
         return;
       }
     } catch {
