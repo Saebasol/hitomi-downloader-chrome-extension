@@ -252,7 +252,7 @@ const ExtendMode = ({ version }: { version: string }) => {
 };
 
 const App = () => {
-  const [checking, setCheking] = useState(true);
+  const [checking, setChecking] = useState(true);
   const [isEnabled, setIsEnabled] = useState(false);
   const [extensionVersion, setextensionChecking] = useState('');
   const [version, setVersion] = useState('');
@@ -269,34 +269,36 @@ const App = () => {
   };
 
   const checkHitomiDownloaderHTTPAPIIsEnabled = async () => {
-    setCheking(true);
+    setChecking(true);
     try {
       const response = await fetch(api + '/version');
       if (response.status === 200) {
-        setCheking(false);
+        setChecking(false);
         setIsEnabled(true);
         console.log(`Hitomi Downloader version: ${(await response.json())['version']}`);
         return;
       }
     } catch {
-      setCheking(false);
+      setChecking(false);
       setIsEnabled(false);
       return;
     }
-    setCheking(false);
+    setChecking(false);
     setIsEnabled(false);
     return;
   };
   useEffect(() => {
-    console.log(`version: ${chrome.runtime.getManifest().version}`);
+    if (location.protocol == 'moz-extension:' || location.protocol == 'chrome-extension:') {
+      console.log(`version: ${chrome.runtime.getManifest().version}`);
+      checkExtensionNewVersion();
+    }
     checkHitomiDownloaderHTTPAPIIsEnabled();
-    checkExtensionNewVersion();
   }, []);
   return (
     <>
-      <Container height="400px" width="500px" padding="0px" maxHeight="100vh">
-        <Center as="header">
-          <Heading size="lg" margin="10px">
+      <Container height='400px' width='500px' padding='0px' minHeight='100vh' maxHeight='100vh'>
+        <Center as='header'>
+          <Heading size='lg' margin='10px'>
             Hitomi Downloader extension
           </Heading>
         </Center>
